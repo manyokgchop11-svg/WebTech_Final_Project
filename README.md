@@ -117,7 +117,7 @@ The system uses a normalized database structure with the following key tables:
 - Customer reviews and ratings
 
 ## Contributors
-[Your Name] - Full Stack Developer
+Manyok Gai Chop- Full Stack Developer
 
 ## License
 This project is developed for academic purposes.
