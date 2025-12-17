@@ -123,4 +123,4 @@ The system uses a normalized database structure with the following key tables:
 This project is developed for academic purposes.
 
 ## Support
-For technical support or questions, please contact [your-email@example.com]
+For technical support or questions
