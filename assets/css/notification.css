@@ -1,0 +1,82 @@
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-color: var(--smoky-black-1);
+  border: 2px solid var(--gold-crayola);
+  border-radius: 8px;
+  padding: 20px 25px;
+  min-width: 300px;
+  max-width: 400px;
+  z-index: 9999;
+  transform: translateX(450px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.notification.show {
+  transform: translateX(0);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--white);
+}
+
+.notification-content ion-icon {
+  font-size: 2.4rem;
+  flex-shrink: 0;
+}
+
+.notification-success {
+  border-color: var(--gold-crayola);
+}
+
+.notification-success ion-icon {
+  color: var(--gold-crayola);
+}
+
+.notification-error {
+  border-color: #ff4444;
+}
+
+.notification-error ion-icon {
+  color: #ff4444;
+}
+
+.notification-content span {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+/* Loading state for buttons */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Form validation styles */
+.input-field:invalid:not(:placeholder-shown) {
+  border-color: #ff4444;
+}
+
+.input-field:valid:not(:placeholder-shown) {
+  border-color: var(--gold-crayola);
+}
+
+@media (max-width: 768px) {
+  .notification {
+    right: 10px;
+    left: 10px;
+    min-width: auto;
+    max-width: none;
+    transform: translateY(-150px);
+  }
+  
+  .notification.show {
+    transform: translateY(0);
+  }
+}
