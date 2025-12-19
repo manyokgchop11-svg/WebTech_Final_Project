@@ -34,9 +34,16 @@ $stats['customers'] = $result->fetch_assoc()['count'];
 $result = $conn->query("SELECT COUNT(*) as count FROM reservations WHERE status = 'pending'");
 $stats['pending_reservations'] = $result->fetch_assoc()['count'];
 
-// Messages
-$result = $conn->query("SELECT COUNT(*) as count FROM contact_messages WHERE status = 'new'");
-$stats['new_messages'] = $result->fetch_assoc()['count'];
+// Messages - Get all message counts
+$result = $conn->query("SELECT 
+    COUNT(*) as total_messages,
+    SUM(CASE WHEN status = 'new' THEN 1 ELSE 0 END) as new_messages,
+    SUM(CASE WHEN status = 'read' THEN 1 ELSE 0 END) as read_messages,
+    SUM(CASE WHEN status = 'replied' THEN 1 ELSE 0 END) as replied_messages
+    FROM contact_messages");
+$message_stats = $result->fetch_assoc();
+$stats['new_messages'] = $message_stats['new_messages'];
+$stats['total_messages'] = $message_stats['total_messages'];
 
 // Recent orders
 $recent_orders = $conn->query("SELECT o.*, u.full_name FROM orders o 
@@ -129,9 +136,9 @@ $conn->close();
                         <ion-icon name="mail-outline"></ion-icon>
                     </div>
                     <div class="stat-content">
-                        <h3 class="stat-value"><?php echo $stats['new_messages']; ?></h3>
-                        <p class="stat-label">New Messages</p>
-                        <p class="stat-sublabel">Unread inquiries</p>
+                        <h3 class="stat-value"><?php echo $stats['total_messages']; ?></h3>
+                        <p class="stat-label">Total Messages</p>
+                        <p class="stat-sublabel"><?php echo $stats['new_messages']; ?> new inquiries</p>
                     </div>
                 </div>
             </div>

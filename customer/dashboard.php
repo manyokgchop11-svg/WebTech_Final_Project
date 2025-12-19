@@ -172,29 +172,20 @@ $cart_count = 0;
         
         .header-actions {
             display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
             gap: 10px;
-            color: var(--gold-crayola);
-            font-size: 1.4rem;
+            align-items: center;
         }
 
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gold-crayola);
-            color: var(--smoky-black-1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.6rem;
+        .logout-btn {
+            background: var(--red-crayola, #dc3545) !important;
+            color: white !important;
+            border: 2px solid var(--red-crayola, #dc3545);
+        }
+
+        .logout-btn:hover {
+            background: transparent !important;
+            color: var(--red-crayola, #dc3545) !important;
+            border-color: var(--red-crayola, #dc3545);
         }
         
         .btn-text {
@@ -612,7 +603,7 @@ $cart_count = 0;
     <!-- Customer Header with Navigation -->
     <header class="customer-header">
         <div class="header-container">
-            <a href="../index.html" class="logo">
+            <a href="../index.php" class="logo">
                 <img src="../assets/images/logo1.png" alt="QuickBite">
             </a>
 
@@ -646,17 +637,11 @@ $cart_count = 0;
             </nav>
 
             <div class="header-actions">
-                <div class="user-info">
-                    <div class="user-avatar">
-                        <?php echo strtoupper(substr($user['full_name'] ?? $user['username'], 0, 1)); ?>
-                    </div>
-                    <span>Welcome, <?php echo htmlspecialchars($user['full_name'] ?? $user['username']); ?></span>
-                </div>
-                <a href="../index.html" class="btn-text">
+                <a href="../index.php" class="nav-link">
                     <ion-icon name="home-outline"></ion-icon>
                     <span>Website</span>
                 </a>
-                <a href="../auth/logout.php" class="btn-text">
+                <a href="../auth/logout.php" class="nav-link logout-btn">
                     <ion-icon name="log-out-outline"></ion-icon>
                     <span>Logout</span>
                 </a>
@@ -672,7 +657,7 @@ $cart_count = 0;
             <p>Ready to order something delicious?</p>
             
             <div class="quick-actions">
-                <a href="../index.html#menu" class="quick-action-btn">
+                <a href="../index.php#menu" class="quick-action-btn">
                     <ion-icon name="restaurant-outline"></ion-icon>
                     <span>Browse Menu</span>
                 </a>
@@ -783,7 +768,7 @@ $cart_count = 0;
                     <i class="fas fa-shopping-bag" style="font-size: 4rem; color: var(--white-alpha-20); margin-bottom: 20px;"></i>
                     <h3 style="color: var(--gold-crayola); margin-bottom: 10px;">No orders yet</h3>
                     <p style="color: var(--quick-silver); margin-bottom: 25px;">Start by browsing our delicious menu!</p>
-                    <a href="../index.html#menu" class="quick-action-btn">
+                    <a href="../index.php#menu" class="quick-action-btn">
                         <ion-icon name="restaurant-outline"></ion-icon>
                         <span>Browse Menu</span>
                     </a>

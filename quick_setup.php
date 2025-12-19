@@ -43,7 +43,7 @@ try {
 echo "<h2>Step 2: Actions</h2>";
 echo "<a href='setup_tables.php' class='btn'>🔧 Run Database Setup</a>";
 echo "<a href='auth/login_fixed.php' class='btn'>🔑 Test Login</a>";
-echo "<a href='index.html' class='btn'>🏠 Main Website</a>";
+echo "<a href='index.php' class='btn'>🏠 Main Website</a>";
 
 echo "<h2>Step 3: Test Credentials</h2>";
 echo "<p><strong>Admin:</strong> admin@quickbite.com / admin123</p>";

@@ -56,4 +56,4 @@ try {
 }
 ?>
 
-<a href="index.html">← Back to Website</a>
+<a href="index.php">← Back to Website</a>

@@ -133,7 +133,20 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
         
         .header-actions {
             display: flex;
-            gap: 15px;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background: var(--red-crayola, #dc3545) !important;
+            color: white !important;
+            border: 2px solid var(--red-crayola, #dc3545);
+        }
+
+        .logout-btn:hover {
+            background: transparent !important;
+            color: var(--red-crayola, #dc3545) !important;
+            border-color: var(--red-crayola, #dc3545);
         }
         
         .btn-text {
@@ -264,7 +277,38 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
         .cart-layout {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Make cart more visible */
+        .cart-section {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid var(--gold-crayola);
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+        }
+
+        .cart-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--gold-crayola), #ffed4e);
+            border-radius: 12px;
+            color: var(--smoky-black-1);
+        }
+
+        .cart-header h2 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: none;
+        }
+
+        .cart-header p {
+            font-size: 1.6rem;
+            opacity: 0.8;
         }
 
         .cart-items {
@@ -435,15 +479,73 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
         }
 
         .order-summary {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid var(--gold-crayola);
             height: fit-content;
             position: sticky;
-            top: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            top: 100px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2); }
+            to { box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4); }
+        }
+
+        /* Floating Cart Summary */
+        .floating-cart-summary {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gold-crayola);
+            color: var(--smoky-black-1);
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: none;
+        }
+
+        .floating-cart-summary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        .floating-cart-summary.show {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quick scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--smoky-black-1);
+            color: var(--gold-crayola);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: 2px solid var(--gold-crayola);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--gold-crayola);
+            color: var(--smoky-black-1);
         }
 
         .order-summary h3 {
@@ -548,7 +650,7 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
 <body class="customer-page">
     <header class="customer-header">
         <div class="header-container">
-            <a href="../index.html" class="logo">
+            <a href="../index.php" class="logo">
                 <img src="../assets/images/logo1.png" alt="QuickBite">
             </a>
 
@@ -573,11 +675,11 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
             </nav>
 
             <div class="header-actions">
-                <a href="../index.html" class="btn-text">
+                <a href="../index.php" class="nav-link">
                     <ion-icon name="home-outline"></ion-icon>
                     <span>Website</span>
                 </a>
-                <a href="../auth/logout.php" class="btn-text">
+                <a href="../auth/logout.php" class="nav-link logout-btn">
                     <ion-icon name="log-out-outline"></ion-icon>
                     <span>Logout</span>
                 </a>
@@ -640,7 +742,7 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
                                 <i class="fas fa-shopping-cart"></i>
                                 <h3>Your cart is empty</h3>
                                 <p>Add some delicious items from our menu!</p>
-                                <a href="../index.html#menu" class="btn btn-primary">
+                                <a href="../index.php#menu" class="btn btn-primary">
                                     <span>Browse Menu</span>
                                 </a>
                             </div>
@@ -967,7 +1069,7 @@ $stats = $stats ?: ['total_orders' => 0, 'pending_orders' => 0, 'completed_order
                         <i class="fas fa-shopping-cart"></i>
                         <h3>Your cart is empty</h3>
                         <p>Add some delicious items from our menu!</p>
-                        <a href="../index.html#menu" class="btn btn-primary">
+                        <a href="../index.php#menu" class="btn btn-primary">
                             <span>Browse Menu</span>
                         </a>
                     </div>
@@ -1304,6 +1406,56 @@ Check console for detailed info.`);
                 alert('Failed to reorder');
             }
         }
+    </script>
+
+    <!-- Floating Cart Summary -->
+    <div class="floating-cart-summary" id="floatingCartSummary" onclick="scrollToCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="floatingCartText">0 items - SSP 0</span>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Update floating cart summary
+        function updateFloatingCart() {
+            const floatingCart = document.getElementById('floatingCartSummary');
+            const floatingText = document.getElementById('floatingCartText');
+            
+            if (cart.length > 0) {
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                floatingText.textContent = `${cart.length} items - SSP ${total.toLocaleString()}`;
+                floatingCart.classList.add('show');
+            } else {
+                floatingCart.classList.remove('show');
+            }
+        }
+
+        function scrollToCart() {
+            document.querySelector('.cart-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Update floating cart when cart changes
+        const originalUpdateCartDisplay = updateCartDisplay;
+        updateCartDisplay = function() {
+            originalUpdateCartDisplay();
+            updateFloatingCart();
+        };
+
+        // Initialize floating cart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(updateFloatingCart, 500);
+        });
     </script>
 </body>
 </html>

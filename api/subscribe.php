@@ -12,15 +12,22 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-$data = json_decode(file_get_contents('php://input'), true);
+// Get email from form data or JSON
+$email = '';
+if (isset($_POST['email_address'])) {
+    $email = $_POST['email_address'];
+} else {
+    $data = json_decode(file_get_contents('php://input'), true);
+    $email = $data['email'] ?? '';
+}
 
-if (empty($data['email'])) {
+if (empty($email)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Email is required']);
     exit();
 }
 
-$email = filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL);
+$email = filter_var(trim($email), FILTER_SANITIZE_EMAIL);
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     http_response_code(400);
@@ -36,7 +43,7 @@ try {
     
     if ($stmt->execute()) {
         http_response_code(201);
-        echo json_encode(['success' => true, 'message' => 'Successfully subscribed to newsletter!']);
+        echo json_encode(['success' => true, 'message' => 'Successfully subscribed! You will receive our latest updates and 25% off your next order.']);
     } else {
         if ($conn->errno === 1062) {
             http_response_code(409);

@@ -29,7 +29,7 @@
         </nav>
 
         <div class="header-actions">
-            <a href="../index.html" class="btn-text">
+            <a href="../index.php" class="btn-text">
                 <ion-icon name="home-outline"></ion-icon>
                 <span>Website</span>
             </a>
@@ -55,7 +55,7 @@
         <a href="cart.php"><ion-icon name="cart-outline"></ion-icon> Cart</a>
         <a href="orders.php"><ion-icon name="list-outline"></ion-icon> Orders</a>
         <a href="profile.php"><ion-icon name="person-outline"></ion-icon> Profile</a>
-        <a href="../index.html"><ion-icon name="home-outline"></ion-icon> Website</a>
+        <a href="../index.php"><ion-icon name="home-outline"></ion-icon> Website</a>
         <a href="../auth/logout.php"><ion-icon name="log-out-outline"></ion-icon> Logout</a>
     </nav>
 </div>

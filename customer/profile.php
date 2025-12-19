@@ -125,7 +125,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         .header-actions {
             display: flex !important;
-            gap: 15px !important;
+            gap: 10px !important;
+            align-items: center !important;
+        }
+
+        .logout-btn {
+            background: var(--red-crayola, #dc3545) !important;
+            color: white !important;
+            border: 2px solid var(--red-crayola, #dc3545) !important;
+        }
+
+        .logout-btn:hover {
+            background: transparent !important;
+            color: var(--red-crayola, #dc3545) !important;
+            border-color: var(--red-crayola, #dc3545) !important;
         }
         
         .btn-text {
@@ -480,11 +493,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </nav>
 
             <div class="header-actions">
-                <a href="../index.html" class="btn-text">
+                <a href="../index.php" class="nav-link">
                     <i class="fas fa-home"></i>
                     <span>Website</span>
                 </a>
-                <a href="../auth/logout.php" class="btn-text">
+                <a href="../auth/logout.php" class="nav-link logout-btn">
                     <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span>
                 </a>

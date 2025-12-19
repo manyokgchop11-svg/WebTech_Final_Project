@@ -55,7 +55,7 @@
 
         <div class="nav-divider"></div>
 
-        <a href="../index.html" class="nav-item">
+        <a href="../index.php" class="nav-item">
             <ion-icon name="home-outline"></ion-icon>
             <span>View Website</span>
         </a>

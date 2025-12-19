@@ -272,7 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="footer">
             <p>Don't have an account? <a href="register.php">Sign Up</a></p>
             <p><a href="#" onclick="showForgotPassword()">Forgot Password?</a></p>
-            <p><a href="../index.html">← Back to Website</a></p>
+            <p><a href="../index.php">← Back to Website</a></p>
         </div>
 
         <!-- Forgot Password Modal -->

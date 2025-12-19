@@ -80,7 +80,7 @@ echo "</div>";
 echo "<h2>Next Steps:</h2>";
 echo "<a href='setup_tables.php' class='btn'>🔧 Setup Database</a>";
 echo "<a href='auth/login_fixed.php' class='btn'>🔑 Test Login</a>";
-echo "<a href='index.html' class='btn'>🏠 Main Website</a>";
+echo "<a href='index.php' class='btn'>🏠 Main Website</a>";
 
 echo "<h2>Manual Steps if Issues Persist:</h2>";
 echo "<div class='info'>";

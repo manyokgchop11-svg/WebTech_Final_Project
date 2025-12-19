@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="auth-footer">
                 <p class="body-4">Don't have an account? <a href="register.php" class="link">Sign Up</a></p>
-                <p class="body-4"><a href="../index.html" class="link">← Back to Website</a></p>
+                <p class="body-4"><a href="../index.php" class="link">← Back to Website</a></p>
             </div>
 
             <div class="demo-credentials">

@@ -86,7 +86,7 @@
         
         <a href="setup_tables.php" class="btn">🚀 Setup Database Now</a>
         <br>
-        <a href="index.html" class="btn">← Back to Website</a>
+        <a href="index.php" class="btn">← Back to Website</a>
         
         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #555; font-size: 1.4rem; color: #ccc;">
             <p><strong>After setup, use these credentials:</strong></p>

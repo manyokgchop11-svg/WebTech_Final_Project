@@ -64,4 +64,4 @@ try {
 }
 ?>
 
-<p><a href="index.html">← Back to Website</a></p>
+<p><a href="index.php">← Back to Website</a></p>
